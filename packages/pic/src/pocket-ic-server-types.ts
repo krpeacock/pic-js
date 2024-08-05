@@ -11,4 +11,9 @@ export interface StartServerOptions {
    * Whether to pipe the canister logs to the parent process's stderr.
    */
   showCanisterLogs?: boolean;
+
+  /**
+   * Path to the PocketIC binary.
+   */
+  binPath?: string;
 }
