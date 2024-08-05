@@ -1,7 +1,7 @@
 {
-  "name": "@hadronous/pic",
+  "name": "pic-ic",
   "description": "An Internet Computer Protocol canister testing library for TypeScript and JavaScript.",
-  "version": "0.9.0",
+  "version": "0.4.0",
   "author": "Hadronous Labs",
   "license": "Apache-2.0",
   "repository": "github:hadronous/pic-js",
@@ -20,21 +20,17 @@
     "testing-tools"
   ],
   "files": [
-    "dist",
-    "postinstall.mjs"
+    "dist"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "scripts": {
-    "postinstall": "node ./postinstall.mjs"
-  },
   "dependencies": {
     "bip39": "^3.1.0"
   },
   "peerDependencies": {
-    "@dfinity/agent": "^1.0.1",
-    "@dfinity/candid": "^1.0.1",
-    "@dfinity/identity": "^1.0.1",
-    "@dfinity/principal": "^1.0.1"
+    "@dfinity/agent": "^2.0.0",
+    "@dfinity/candid": "^2.0.0",
+    "@dfinity/identity": "^2.0.0",
+    "@dfinity/principal": "^2.0.0"
   }
 }
