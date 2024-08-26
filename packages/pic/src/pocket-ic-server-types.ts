@@ -16,4 +16,9 @@ export interface StartServerOptions {
    * Path to the PocketIC binary.
    */
   binPath?: string;
+
+  /**
+   * The time-to-live of the PocketIC server in seconds [default: 60]
+   */
+  ttl?: number;
 }
