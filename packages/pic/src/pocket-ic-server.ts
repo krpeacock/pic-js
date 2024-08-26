@@ -48,7 +48,7 @@ export class PocketIcServer {
   private readonly url: string;
 
   private constructor(
-    private readonly serverProcess: ChildProcess,
+    readonly serverProcess: ChildProcess,
     portNumber: number,
   ) {
     this.url = `http://127.0.0.1:${portNumber}`;
