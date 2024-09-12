@@ -1,6 +1,6 @@
 import { ChildProcess, spawn } from 'node:child_process';
 import { resolve } from 'node:path';
-import { chmodSync } from 'node:fs';
+import { chmodSync, rmSync } from 'node:fs';
 import {
   BinNotFoundError,
   BinStartError,
@@ -135,6 +135,10 @@ export class PocketIcServer {
       });
 
       this.serverProcess.kill();
+
+      const picFilePrefix = `pocket_ic_${process.ppid}`;
+      rmSync(tmpFile(`${picFilePrefix}.port`), {force: true});
+      rmSync(tmpFile(`${picFilePrefix}.ready`), {force: true});
     });
   }
 
