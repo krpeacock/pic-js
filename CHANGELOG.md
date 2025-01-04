@@ -1,3 +1,24 @@
+## Unreleased
+
+## 0.11.0 (2025-01-01)
+
+### Feat
+
+- update dependencies
+
+## 0.10.0 (2024-11-27)
+
+### Feat
+
+- add support for mocking https outcalls
+
+## 0.10.0-b0 (2024-10-07)
+
+### Feat
+
+- upgrade to server v6
+- upgrade pic server to v5
+
 ## 0.9.0 (2024-07-01)
 
 ## 0.9.0-b0 (2024-05-06)

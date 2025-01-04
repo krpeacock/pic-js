@@ -21,7 +21,10 @@ jobs:
 
       - uses: ./.github/actions/setup-commitizen
 
-      - uses: ./.github/actions/setup-nodejs
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Build package
         run: bun build:pic
@@ -33,7 +36,7 @@ jobs:
         run: echo "version=$(cz version --project)" >> "$GITHUB_ENV"
 
       - name: Push changes to repository
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: release ${{ env.version }}'
           commit_options: '--no-verify --signoff'

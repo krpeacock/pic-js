@@ -69,7 +69,6 @@ export class PocketIcServer {
     const pid = process.ppid;
     const picFilePrefix = `pocket_ic_${pid}`;
     const portFilePath = tmpFile(`${picFilePrefix}.port`);
-    const readyFilePath = tmpFile(`${picFilePrefix}.ready`);
 
     const serverProcess = spawn(binPath, ['--pid', pid.toString(), '--ttl', options.ttl ? options.ttl.toString() : '60']);
 
@@ -95,16 +94,13 @@ export class PocketIcServer {
 
     return await poll(
       async () => {
-        const isPocketIcReady = await exists(readyFilePath);
-
-        if (isPocketIcReady) {
-          const portString = await readFileAsString(portFilePath);
-          const port = parseInt(portString);
-
-          return new PocketIcServer(serverProcess, port);
+        const portString = await readFileAsString(portFilePath);
+        const port = parseInt(portString);
+        if (isNaN(port)) {
+          throw new BinTimeoutError();
         }
 
-        throw new BinTimeoutError();
+        return new PocketIcServer(serverProcess, port);
       },
       { intervalMs: POLL_INTERVAL_MS, timeoutMs: POLL_TIMEOUT_MS },
     );
