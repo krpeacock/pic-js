@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changed
+
+- feat: adds support for subnetId in all subnet types
+
 ## 0.11.0 (2025-01-01)
 
 ### Feat

@@ -95,6 +95,16 @@ export interface SubnetConfig<
    * The state configuration for the subnet.
    */
   state: T;
+
+    /**
+   * The subnet ID to setup the subnet on.
+   *
+   * The value can be obtained, e.g., via the following command for an NNS subnet:
+   * ```bash
+   * ic-regedit snapshot <path-to-ic_registry_local_store> | jq -r ".nns_subnet_id"
+   * ```
+   */
+    subnetId?: Principal;
 }
 
 /**
