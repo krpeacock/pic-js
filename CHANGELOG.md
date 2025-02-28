@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changed
+
+- fix!: switch from --pid to --port-file for pic server
+
 ## 0.11.0 (2025-01-01)
 
 ### Feat
